@@ -2,7 +2,7 @@
  * 路由跳转
  * @param {string} url
  * @param {object} obj
- * @returns uni.navigateTo
+ * @returns complete info
  */
 export const go = (url, obj) => {
   let info = "";
@@ -31,7 +31,7 @@ export const go = (url, obj) => {
  * 路由重定向
  * @param {string} url
  * @param {object} obj
- * @returns uni.redirectTo
+ * @returns complete info
  */
 export const reGo = (url, obj) => {
   let info = "";
@@ -73,8 +73,8 @@ export const back = (delta = 1) => {
 };
 /**
  * 切换tabBar页面
- * @param {*} url
- * @param {*} obj
+ * @param {string} url
+ * @param {object} obj
  * @returns
  */
 export const tabBar = (url, obj) => {
