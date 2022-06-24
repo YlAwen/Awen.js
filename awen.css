@@ -116,7 +116,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
 }
-.flexCenter {
+.flexC {
   display: flex !important;
   justify-content: center;
   flex-direction: column;
@@ -124,69 +124,69 @@ body {
 }
 
 /* text */
-.textCenter {
+.textC {
   text-align: center;
 }
-.textLeft {
+.textL {
   text-align: left;
 }
-.textRight {
+.textR {
   text-align: right;
 }
-.textIndent {
+.textI {
   text-indent: 1em;
 }
-.textIndent2 {
+.textI2 {
   text-indent: 2em;
 }
-.textIndent3 {
+.textI3 {
   text-indent: 3em;
 }
-.textIndent4 {
+.textI4 {
   text-indent: 4em;
 }
-.textHidden {
+.textH {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.textHidden2 {
+.textH2 {
   display: -webkit-box !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
-.textHidden3 {
+.textH3 {
   display: -webkit-box !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
 }
-.textHidden4 {
+.textH4 {
   display: -webkit-box !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
   overflow: hidden;
 }
-.textHidden5 {
+.textH5 {
   display: -webkit-box !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 5;
   overflow: hidden;
 }
-.textHidden6 {
+.textH6 {
   display: -webkit-box !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 6;
   overflow: hidden;
 }
-.textHidden7 {
+.textH7 {
   display: -webkit-box !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 7;
   overflow: hidden;
 }
-.textHidden8 {
+.textH8 {
   display: -webkit-box !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 8;

@@ -1,15 +1,15 @@
-import * as array from "./array";
-import * as object from "./object";
-import * as string from "./string";
-import * as regexp from "./regexp";
+import * as arr from "./arr";
+import * as obj from "./obj";
+import * as str from "./str";
+import * as reg from "./reg";
 import * as browser from "./browser";
 import * as other from "./other";
 
 const utils = {
-  array,
-  object,
-  string,
-  regexp,
+  arr,
+  obj,
+  str,
+  reg,
   browser,
   ...other,
 };
