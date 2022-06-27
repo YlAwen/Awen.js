@@ -2,7 +2,7 @@ import * as arr from "./arr";
 import * as obj from "./obj";
 import * as str from "./str";
 import * as reg from "./reg";
-import * as browser from "./browser";
+import * as bro from "./bro";
 import * as other from "./other";
 
 const utils = {
@@ -10,7 +10,7 @@ const utils = {
   obj,
   str,
   reg,
-  browser,
+  bro,
   ...other,
 };
 

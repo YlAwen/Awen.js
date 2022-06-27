@@ -43,3 +43,15 @@ export const viewPort = () => {
     }
   }
 };
+
+/**
+ * 判断是否移动端
+ * @returns Boolean
+ */
+export const isMobile = () => {
+  const ua = window.navigator.userAgent;
+  if (/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(ua)) {
+    return true;
+  }
+  return false;
+};
