@@ -67,3 +67,23 @@ export const open = (path, data) => {
   }
   return window.open(url, "_blank");
 };
+
+/**
+ * 获取url参数对象
+ * @param {string} url
+ * @returns object
+ */
+export const queryString = (url) => {
+  const r = {};
+  const _url = url || window.location.href;
+  if (_url.split("?")[1]) {
+    let str = _url.split("?")[1];
+    str = str.split("&");
+    str.forEach((item) => {
+      const key = item.split("=")[0];
+      const val = item.split("=")[1];
+      r[key] = decodeURIComponent(val);
+    });
+  }
+  return r;
+};
