@@ -69,6 +69,34 @@ export const open = (path, data) => {
 };
 
 /**
+ * 打开页面
+ * @param {string} path
+ * @param {array||object} data
+ * @returns router
+ */
+export const go = (path, data) => {
+  let url = path;
+  if (path[path.length - 1] === "/") {
+    url = url.slice(0, url.length - 1);
+  }
+  if (type(data) === "Object") {
+    var queryStr = "";
+    for (let key in data) {
+      queryStr = queryStr + "&" + key + "=" + data[key];
+    }
+    return window.open(url + "?" + queryStr.replace(/.{1}(.*)/, "$1"), "_self");
+  }
+  if (type(data) === "Array") {
+    var parmaStr = "";
+    data.forEach((element) => {
+      parmaStr = parmaStr + "/" + element;
+    });
+    return window.open(url + parmaStr, "_self");
+  }
+  return window.open(url, "_self");
+};
+
+/**
  * 获取url参数对象
  * @param {string} url
  * @returns object
