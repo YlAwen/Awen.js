@@ -1,11 +1,11 @@
-import uni from "./uni";
-import utils from "./utils";
-import web from "./web";
+import auni from "./auni";
+import autil from "./autil";
+import aweb from "./aweb";
 
 const awen = {
-  uni,
-  utils,
-  web,
+  auni,
+  autil,
+  aweb,
 };
 
 export default awen;

@@ -1,3 +1,5 @@
+import * as dayjs from "dayjs";
+
 /**
  * 获取类型
  * @param {any} data
@@ -114,4 +116,14 @@ export const queryString = (url) => {
     });
   }
   return r;
+};
+
+/**
+ * 格式化时间
+ * @param {string|number} date
+ * @param {string} str
+ * @returns date
+ */
+export const dayjs = (date = "", str) => {
+  return dayjs(date).format(str);
 };

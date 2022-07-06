@@ -1,11 +1,14 @@
 {
   "name": "awen",
-  "version": "2.0.7",
+  "version": "2.1.7",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Awen",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dayjs": "^1.11.3"
+  }
 }
