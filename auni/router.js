@@ -5,27 +5,21 @@
  * @returns complete info
  */
 export const go = (url, obj) => {
-  let info = "";
   if (obj) {
     let path = "";
     for (let key in obj) {
       path = path + "&" + key + "=" + obj[key];
     }
-    uni.navigateTo({
+    return uni.navigateTo({
       url: url + "?" + path,
-      complete(res) {
-        info = res;
-      },
+      complete(res) {},
     });
   } else {
-    uni.navigateTo({
+    return uni.navigateTo({
       url,
-      complete(res) {
-        info = res;
-      },
+      complete(res) {},
     });
   }
-  return info;
 };
 /**
  * 路由重定向
@@ -34,27 +28,21 @@ export const go = (url, obj) => {
  * @returns complete info
  */
 export const reGo = (url, obj) => {
-  let info = "";
   if (obj) {
     let path = "";
     for (let key in obj) {
       path = path + "&" + key + "=" + obj[key];
     }
-    uni.redirectTo({
+    return uni.redirectTo({
       url: url + "?" + path,
-      complete(res) {
-        info = res;
-      },
+      complete(res) {},
     });
   } else {
-    uni.redirectTo({
+    return uni.redirectTo({
       url,
-      complete(res) {
-        info = res;
-      },
+      complete(res) {},
     });
   }
-  return info;
 };
 /**
  * 路由返回
@@ -62,14 +50,12 @@ export const reGo = (url, obj) => {
  * @returns uni.navigateBack
  */
 export const back = (delta = 1) => {
-  let info = "";
-  uni.navigateBack({
+  return uni.navigateBack({
     delta,
     complete(res) {
       info = res;
     },
   });
-  return info;
 };
 /**
  * 切换tabBar页面
@@ -83,20 +69,14 @@ export const tabBar = (url, obj) => {
     for (let key in obj) {
       path = path + "&" + key + "=" + obj[key];
     }
-    uni.switchTab({
+    return uni.switchTab({
       url: url + "?" + path,
-      complete(res) {
-        info = res;
-      },
+      complete(res) {},
     });
   } else {
-    uni.switchTab({
+    return uni.switchTab({
       url,
-      complete(res) {
-        info = res;
-      },
+      complete(res) {},
     });
   }
-  let info = "";
-  return info;
 };

@@ -124,6 +124,6 @@ export const queryString = (url) => {
  * @param {string} str
  * @returns date
  */
-export const dayjs = (date = "", str) => {
+export const formatDate = (date = "", str) => {
   return dayjs(date).format(str);
 };
