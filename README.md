@@ -25,7 +25,7 @@ npm install awen@版本号
 	<script src="./awen.js"></script>
 ```
 
-### Vue
+### Vue2
 
 <h6>main.js</h6>
 
@@ -49,6 +49,35 @@ export default {
     this.$auni.local.get("awen");
   },
 };
+</script>
+```
+
+### Vue3
+
+<h6>main.ts</h6>
+
+```javascript
+import { createApp } from "vue";
+import App from "./App.vue";
+import router from "./router";
+import autil from "awen/autil";
+
+const app = createApp(App);
+
+app.config.globalProperties.$autil = autil;
+
+app.use(router).mount("#app");
+```
+
+<h6>组件内</h6>
+
+```vue
+<template></template>
+
+<script setup lang="ts">
+import { getCurrentInstance } from "vue";
+const _this = getCurrentInstance();
+const $autil = _this?.appContext.config.globalProperties.$autil;
 </script>
 ```
 
