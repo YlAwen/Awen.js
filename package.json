@@ -1,6 +1,6 @@
 {
   "name": "awen",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,5 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "dayjs": "^1.11.3"
-  }
+  },
+  "types": ".d.ts"
 }
