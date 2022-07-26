@@ -81,6 +81,10 @@ body {
 .flex {
   display: flex !important;
 }
+.flexAC {
+  display: flex !important;
+  align-items: center;
+}
 .flexJB {
   display: flex !important;
   justify-content: space-between;
@@ -153,46 +157,54 @@ body {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  min-height: 1em;
 }
 .textH2 {
   display: -webkit-box !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+  min-height: 2em;
 }
 .textH3 {
   display: -webkit-box !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
+  min-height: 3em;
 }
 .textH4 {
   display: -webkit-box !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
   overflow: hidden;
+  min-height: 4em;
 }
 .textH5 {
   display: -webkit-box !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 5;
   overflow: hidden;
+  min-height: 5em;
 }
 .textH6 {
   display: -webkit-box !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 6;
   overflow: hidden;
+  min-height: 6em;
 }
 .textH7 {
   display: -webkit-box !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 7;
   overflow: hidden;
+  min-height: 7em;
 }
 .textH8 {
   display: -webkit-box !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 8;
   overflow: hidden;
+  min-height: 8em;
 }
