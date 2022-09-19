@@ -1,6 +1,8 @@
 ## 文档
 
-https://www.ylawen.com/awen.js
+> https://www.ylawen.com/awen.js
+>
+> 文档暂停更新（太忙了一堆破事）
 
 ## 安装
 
