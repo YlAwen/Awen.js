@@ -1,13 +1,4 @@
 /**
- * 获取类型
- * @param {any} data
- * @returns type
- */
-export const type = (data) => {
-  return Object.prototype.toString.call(data).replace(/\[object (.*)\]/, "$1");
-};
-
-/**
  * 打开新页面
  * @param {string} path
  * @param {array||object} data
@@ -19,7 +10,7 @@ export const open = (path, data) => {
     url = url.slice(0, url.length - 1);
   }
   if (type(data) === "Object") {
-    var queryStr = "";
+    let queryStr = "";
     for (let key in data) {
       queryStr = queryStr + "&" + key + "=" + data[key];
     }
