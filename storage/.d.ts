@@ -4,7 +4,7 @@
  * @param {function} callback
  * @returns data
  */
-export declare function localGet(str: string, callback?: () => void): any;
+export declare function getLocal(str: string, callback?: () => void): any;
 
 /**
  * 设置本地存储
@@ -13,7 +13,7 @@ export declare function localGet(str: string, callback?: () => void): any;
  * @param {function} callback
  * @returns boolean
  */
-export declare function localSet(
+export declare function setLocal(
   str: string,
   data: any,
   callback?: () => void
@@ -25,7 +25,7 @@ export declare function localSet(
  * @param {function} callback
  * @returns boolean
  */
-export declare function localRemove(
+export declare function removeLocal(
   str: string,
   callback?: () => void
 ): boolean;
@@ -35,7 +35,7 @@ export declare function localRemove(
  * @param {function} callback
  * @returns boolean
  */
-export declare function localClear(callback?: () => void): boolean;
+export declare function clearLocal(callback?: () => void): boolean;
 
 /**
  * 获取本地存储
@@ -43,7 +43,7 @@ export declare function localClear(callback?: () => void): boolean;
  * @param {function} callback
  * @returns data
  */
-export declare function sessionGet(str: string, callback?: () => void): any;
+export declare function getSession(str: string, callback?: () => void): any;
 
 /**
  * 设置本地存储
@@ -52,7 +52,7 @@ export declare function sessionGet(str: string, callback?: () => void): any;
  * @param {function} callback
  * @returns boolean
  */
-export declare function sessionSet(
+export declare function setSession(
   str: string,
   data: any,
   callback?: () => void
@@ -64,7 +64,7 @@ export declare function sessionSet(
  * @param {function} callback
  * @returns boolean
  */
-export declare function sessionRemove(
+export declare function removeSession(
   str: string,
   callback?: () => void
 ): boolean;
@@ -74,14 +74,14 @@ export declare function sessionRemove(
  * @param {function} callback
  * @returns boolean
  */
-export declare function sessionClear(callback?: () => void): boolean;
+export declare function clearSession(callback?: () => void): boolean;
 
 /**
  * 获取cookie
  * @param {string} str
  * @returns data||boolean
  */
-export declare function cookieGet(str: string): boolean | any;
+export declare function getCookie(str: string): boolean | any;
 
 /**
  * 设置cookie
@@ -90,11 +90,11 @@ export declare function cookieGet(str: string): boolean | any;
  * @param {any} time
  * @returns boolean
  */
-export declare function cookieSet(str: string, data: any, time?: any): boolean;
+export declare function setCookie(str: string, data: any, time?: any): boolean;
 
 /**
  * 移除cookie
  * @param {string} str
  * @returns boolean
  */
-export declare function cookieRemove(str: string): boolean;
+export declare function removeCookie(str: string): boolean;

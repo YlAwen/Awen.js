@@ -4,7 +4,7 @@
  * @param {function} callback
  * @returns data
  */
-export const localGet = (str, callback = () => {}) => {
+export const getLocal = (str, callback = () => {}) => {
   let data = null;
   try {
     data = JSON.parse(localStorage.getItem(str));
@@ -22,7 +22,7 @@ export const localGet = (str, callback = () => {}) => {
  * @param {function} callback
  * @returns boolean
  */
-export const localSet = (str, data, callback = () => {}) => {
+export const setLocal = (str, data, callback = () => {}) => {
   try {
     localStorage.setItem(str, JSON.stringify(data));
     callback();
@@ -39,7 +39,7 @@ export const localSet = (str, data, callback = () => {}) => {
  * @param {function} callback
  * @returns boolean
  */
-export const localRemove = (str, callback = () => {}) => {
+export const removeLocal = (str, callback = () => {}) => {
   try {
     localStorage.removeItem(str);
     callback();
@@ -55,7 +55,7 @@ export const localRemove = (str, callback = () => {}) => {
  * @param {function} callback
  * @returns boolean
  */
-export const localClear = (callback = () => {}) => {
+export const clearLocal = (callback = () => {}) => {
   try {
     localStorage.clear();
     callback();
@@ -72,7 +72,7 @@ export const localClear = (callback = () => {}) => {
  * @param {function} callback
  * @returns data
  */
-export const sessionGet = (str, callback = () => {}) => {
+export const getSession = (str, callback = () => {}) => {
   let data = null;
   try {
     data = JSON.parse(sessionStorage.getItem(str));
@@ -90,7 +90,7 @@ export const sessionGet = (str, callback = () => {}) => {
  * @param {function} callback
  * @returns boolean
  */
-export const sessionSet = (str, data, callback = () => {}) => {
+export const setSession = (str, data, callback = () => {}) => {
   try {
     sessionStorage.setItem(str, JSON.stringify(data));
     callback();
@@ -107,7 +107,7 @@ export const sessionSet = (str, data, callback = () => {}) => {
  * @param {function} callback
  * @returns boolean
  */
-export const sessionRemove = (str, callback = () => {}) => {
+export const removeSession = (str, callback = () => {}) => {
   try {
     sessionStorage.removeItem(str);
     callback();
@@ -123,7 +123,7 @@ export const sessionRemove = (str, callback = () => {}) => {
  * @param {function} callback
  * @returns boolean
  */
-export const sessionClear = (callback = () => {}) => {
+export const clearSession = (callback = () => {}) => {
   try {
     sessionStorage.clear();
     callback();
@@ -139,7 +139,7 @@ export const sessionClear = (callback = () => {}) => {
  * @param {string} str
  * @returns data||boolean
  */
-export const cookieGet = (str) => {
+export const getCookie = (str) => {
   try {
     let allCookieArr = document.cookie.split("; ");
     for (let i = 0; i < allCookieArr.length; i++) {
@@ -162,7 +162,7 @@ export const cookieGet = (str) => {
  * @param {any} time
  * @returns boolean
  */
-export const cookieSet = (str, data, time = "") => {
+export const setCookie = (str, data, time = "") => {
   try {
     let date = new Date();
     date.setDate(date.getDate() + time);
@@ -179,7 +179,7 @@ export const cookieSet = (str, data, time = "") => {
  * @param {string} str
  * @returns boolean
  */
-export const cookieRemove = (str) => {
+export const removeCookie = (str) => {
   try {
     this.setCookie(str, "", -1);
     return true;

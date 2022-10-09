@@ -22,3 +22,10 @@ export const toFromData = (data) => {
     console.log(error);
   }
 };
+
+// /**
+//  * object转formdata
+//  * @param {object} data
+//  * @returns formdata
+//  */
+//  export declare function type(data: object): FormData;

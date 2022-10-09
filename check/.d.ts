@@ -1,13 +1,14 @@
 /**
- * 检查数据类型
+ * 判断数据类型
  * @param data
  * @returns string
  */
 export declare function type(data: any): string;
 
 /**
- * object转formdata
- * @param {object} data
- * @returns formdata
+ * 正则校验数据
+ * @param {string} type
+ * @param {number||string} str
+ * @returns boolean||undefined
  */
-export declare function type(data: object): FormData;
+export declare function type(data: any): string;
