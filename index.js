@@ -1,11 +1,15 @@
-import auni from "./auni";
-import autil from "./autil";
-import aweb from "./aweb";
+import * as check from "./check";
+import * as router from "./router";
+import * as utils from "./utils";
+import * as storage from "./storage";
+import "./style/base.css";
+import "./style/class.css";
 
 const awen = {
-  auni,
-  autil,
-  aweb,
+  check,
+  router,
+  utils,
+  storage,
 };
 
 export default awen;

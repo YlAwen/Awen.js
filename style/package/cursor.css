@@ -1,0 +1,36 @@
+.c-pointer:hover {
+  cursor: pointer !important;
+}
+.c-pointer {
+  cursor: pointer !important;
+}
+.c-auto:hover {
+  cursor: auto !important;
+}
+.c-auto {
+  cursor: auto !important;
+}
+.c-crosshair:hover {
+  cursor: crosshair !important;
+}
+.c-crosshair {
+  cursor: crosshair !important;
+}
+.c-move:hover {
+  cursor: move !important;
+}
+.c-move {
+  cursor: move !important;
+}
+.c-wait:hover {
+  cursor: wait !important;
+}
+.c-wait {
+  cursor: wait !important;
+}
+.c-help:hover {
+  cursor: help !important;
+}
+.c-help {
+  cursor: help !important;
+}

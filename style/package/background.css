@@ -1,0 +1,15 @@
+.bg-noRepeat {
+  background-repeat: no-repeat;
+}
+.bg-repeat {
+  background-repeat: repeat;
+}
+.bg-fixed {
+  background-attachment: fixed;
+}
+.bg-fixed {
+  background-attachment: scroll;
+}
+.bg-cover {
+  background-size: cover;
+}

@@ -1,3 +1,4 @@
+import { type } from "../check";
 /**
  * 打开新页面
  * @param {string} path
@@ -62,7 +63,7 @@ export const go = (path, data) => {
  * @param {string} url
  * @returns object
  */
-export const getQueryObj = (url) => {
+export const getParamsObj = (url) => {
   const r = {};
   const _url = url || window.location.href;
   if (_url.split("?")[1]) {
@@ -82,7 +83,7 @@ export const getQueryObj = (url) => {
  * @param {string} url
  * @returns string
  */
-export const getQueryStr = (url) => {
+export const getParamsStr = (url) => {
   const str = "";
   const _url = url || window.location.href;
   if (_url.split("?")[1]) {
@@ -103,4 +104,21 @@ export const getPath = (url) => {
     return _url.split("?")[0];
   }
   return str;
+};
+
+/**
+ * 对象转路径params
+ * @param {object} data
+ * @returns params string
+ */
+export const toParams = (data) => {
+  let str = "";
+  if (type(data) === "Object") {
+    for (let key in data) {
+      str = str + "&" + key + "=" + data[key];
+    }
+    return str.replace(/&(.*)/, "?$1");
+  } else {
+    return "";
+  }
 };
