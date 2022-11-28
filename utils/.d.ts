@@ -72,7 +72,7 @@ export declare function splitStr(
  * @param {string} text 文本
  * @returns copy
  */
-export declare function debounce(text: string | number): void;
+export declare function copy(text: string | number): void;
 
 /**
  * 页面滚动
