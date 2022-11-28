@@ -338,3 +338,11 @@ export function handleTree(data, id, parentId, children) {
   }
   return tree;
 }
+
+export function filterVal(data, str, option = {}) {
+  const _option = {
+    value: "value",
+    type: "string",
+    ...option,
+  };
+}

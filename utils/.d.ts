@@ -13,7 +13,7 @@ export declare function toFromData(data: object): FormData | boolean;
  * @returns function
  */
 export declare function debounce(
-  func: function,
+  func: Function,
   wait?: number,
   immediate?: boolean
 ): void;
@@ -26,7 +26,7 @@ export declare function debounce(
  * @returns function
  */
 export declare function throttle(
-  func: function,
+  func: Function,
   wait?: number,
   type?: number
 ): void;
@@ -143,8 +143,8 @@ export declare function getUUID(str?: string): string;
  * @returns array
  */
 export declare function handleTree(
-  data: array,
+  data: Array<any>,
   id?: string,
   parentId?: string,
   children?: string
-): array;
+): Array<any>;
