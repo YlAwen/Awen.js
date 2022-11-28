@@ -1,4 +1,4 @@
-import { type } from "../check";
+import { type } from "../utils";
 /**
  * 打开新页面
  * @param {string} path

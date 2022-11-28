@@ -1,4 +1,19 @@
 /**
+ * 判断数据类型
+ * @param data
+ * @returns string
+ */
+export declare function type(data: any): string;
+
+/**
+ * 正则校验数据
+ * @param {string} type
+ * @param {number||string} str
+ * @returns boolean||undefined
+ */
+export declare function type(data: any): string;
+
+/**
  * object转formdata
  * @param {object} data 对象
  * @returns formdata | false
@@ -148,3 +163,17 @@ export declare function handleTree(
   parentId?: string,
   children?: string
 ): Array<any>;
+
+/**
+ * 匹配字符串
+ * @param {string} value 数据
+ * @param {string} checkStr 要匹配的值
+ * @param {boolean} capitalization 匹配大小写 默认true
+ * @param {boolean} all 匹配全局 默认true
+ * @returns boolean
+ */
+export declare function hasStr(
+  value: string,
+  checkStr: string,
+  capitalization?: boolean
+): boolean;
