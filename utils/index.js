@@ -425,5 +425,5 @@ export function hasStr(value, checkStr, capitalization = true, all = true) {
   if (all) {
     str += "g";
   }
-  const val = value.match(new RegExp(checkStr, str));
+  return value.match(new RegExp(checkStr, str));
 }
