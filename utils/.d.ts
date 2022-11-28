@@ -24,26 +24,22 @@ export declare function toFromData(data: object): FormData | boolean;
  * 函数防抖
  * @param {function} func 目标函数
  * @param {number} wait 延迟执行毫秒数
- * @param {boolean} immediate true - 立即执行， false - 延迟执行
  * @returns function
  */
 export declare function debounce(
   func: Function,
   wait?: number,
-  immediate?: boolean
 ): void;
 
 /**
  * 函数节流
  * @param {function} func 函数
  * @param {number} wait 延迟执行毫秒数
- * @param {number} type 1 在时间段开始的时候触发 2 在时间段结束的时候触发
  * @returns function
  */
 export declare function throttle(
   func: Function,
   wait?: number,
-  type?: number
 ): void;
 
 /**

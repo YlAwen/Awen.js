@@ -91,62 +91,38 @@ export const toFromData = (data) => {
   }
 };
 
+var _debounceTimeout = null;
 /**
  * 函数防抖
  * @param {function} func 目标函数
  * @param {number} wait 延迟执行毫秒数
- * @param {boolean} immediate true - 立即执行， false - 延迟执行
  * @returns function
  */
-export const debounce = (func, wait = 1000, immediate = true) => {
-  let timer;
-  return function () {
-    let context = this,
-      args = arguments;
-    if (timer) clearTimeout(timer);
-    if (immediate) {
-      let callNow = !timer;
-      timer = setTimeout(() => {
-        timer = null;
-      }, wait);
-      if (callNow) func.apply(context, args);
-    } else {
-      timer = setTimeout(() => {
-        func.apply(context, args);
-      }, wait);
-    }
-  };
+export const debounce = (func, wait = 500) => {
+  clearTimeout(_debounceTimeout);
+  _debounceTimeout = setTimeout(() => {
+    fn();
+  }, wait);
 };
 
+var _throttleRunning = false;
 /**
  * 函数节流
  * @param {function} func 函数
  * @param {number} wait 延迟执行毫秒数
- * @param {number} type 1 在时间段开始的时候触发 2 在时间段结束的时候触发
  * @returns function
  */
-export const throttle = (func, wait = 1000, type = 1) => {
-  let previous = 0;
-  let timeout;
-  return function () {
-    let context = this;
-    let args = arguments;
-    if (type === 1) {
-      let now = Date.now();
-      if (now - previous > wait) {
-        func.apply(context, args);
-        previous = now;
-      }
-    } else if (type === 2) {
-      if (!timeout) {
-        timeout = setTimeout(() => {
-          timeout = null;
-          func.apply(context, args);
-        }, wait);
-      }
-    }
-  };
+export const throttle = (fn, delay = 500) => {
+  if (_throttleRunning) {
+    return;
+  }
+  _throttleRunning = true;
+  fn();
+  setTimeout(() => {
+    _throttleRunning = false;
+  }, delay);
 };
+
 
 /**
  * 深克隆
