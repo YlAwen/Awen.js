@@ -101,7 +101,7 @@ var _debounceTimeout = null;
 export const debounce = (func, wait = 500) => {
   clearTimeout(_debounceTimeout);
   _debounceTimeout = setTimeout(() => {
-    fn();
+    func();
   }, wait);
 };
 
@@ -112,12 +112,12 @@ var _throttleRunning = false;
  * @param {number} wait 延迟执行毫秒数
  * @returns function
  */
-export const throttle = (fn, delay = 500) => {
+export const throttle = (func, delay = 500) => {
   if (_throttleRunning) {
     return;
   }
   _throttleRunning = true;
-  fn();
+  func();
   setTimeout(() => {
     _throttleRunning = false;
   }, delay);
