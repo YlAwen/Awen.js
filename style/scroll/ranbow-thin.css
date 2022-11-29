@@ -1,0 +1,41 @@
+/* 设置滚动条的样式 */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* 滚动槽 */
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* 滚动条滑块 */
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-image: linear-gradient(
+    rgba(255, 0, 0, 0.75),
+    rgba(255, 165, 0, 0.75),
+    rgba(255, 255, 0, 0.75),
+    rgba(0, 255, 0, 0.75),
+    rgba(0, 255, 255, 0.75),
+    rgba(0, 0, 255, 0.75),
+    rgba(139, 0, 255, 0.75)
+  );
+  background-clip: content-box;
+  border: 2px solid rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background-image: linear-gradient(
+    rgba(255, 0, 0, 0.75),
+    rgba(255, 165, 0, 0.75),
+    rgba(255, 255, 0, 0.75),
+    rgba(0, 255, 0, 0.75),
+    rgba(0, 255, 255, 0.75),
+    rgba(0, 0, 255, 0.75),
+    rgba(139, 0, 255, 0.75)
+  );
+}
