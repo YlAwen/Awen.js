@@ -26,10 +26,7 @@ export declare function toFromData(data: object): FormData | boolean;
  * @param {number} wait 延迟执行毫秒数
  * @returns function
  */
-export declare function debounce(
-  func: Function,
-  wait?: number,
-): void;
+export declare function debounce(func: Function, wait?: number): void;
 
 /**
  * 函数节流
@@ -37,10 +34,7 @@ export declare function debounce(
  * @param {number} wait 延迟执行毫秒数
  * @returns function
  */
-export declare function throttle(
-  func: Function,
-  wait?: number,
-): void;
+export declare function throttle(func: Function, wait?: number): void;
 
 /**
  * 深克隆
@@ -146,6 +140,13 @@ export declare function hexToRGB(hex: string): string | null;
 export declare function getUUID(str?: string): string;
 
 /**
+ * 正则转义
+ * @param {string} string
+ * @returns string
+ */
+export declare function parseRegExp(string: string): string;
+
+/**
  * 构造树型结构数据
  * @param {array} data 数据源
  * @param {string} id id字段 默认 'id'
@@ -160,16 +161,44 @@ export declare function handleTree(
   children?: string
 ): Array<any>;
 
+type hasText_Option = {
+  checkAll?: boolean;
+  capitalization?: boolean;
+};
 /**
  * 匹配字符串
  * @param {string} value 数据
  * @param {string} checkStr 要匹配的值
- * @param {boolean} capitalization 匹配大小写 默认true
- * @param {boolean} all 匹配全局 默认true
+ * @param {object} option 配置项
+ * checkAll 默认true 全局匹配
+ * capitalization 默认true 匹配大小写
  * @returns boolean
  */
-export declare function hasStr(
+export declare function hasText(
   value: string,
   checkStr: string,
-  capitalization?: boolean
+  option?: hasText_Option
 ): boolean;
+
+type highLightText_Option = {
+  checkAll?: boolean;
+  capitalization?: boolean;
+  class?: string;
+};
+/**
+ * 高亮字段
+ * @param {string} text 文本
+ * @param {string} lightStr 高亮文本
+ * @param {string} color 颜色
+ * @param {object} option 配置项
+ * checkAll 默认true 全局匹配
+ * capitalization 默认true 匹配大小写
+ * class 默认highLightText 类名
+ * @returns string
+ */
+export declare function highLightText(
+  text: string,
+  lightStr: string,
+  color: string,
+  option?: highLightText_Option
+): string;

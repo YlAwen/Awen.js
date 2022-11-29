@@ -123,7 +123,6 @@ export const throttle = (func, delay = 500) => {
   }, delay);
 };
 
-
 /**
  * 深克隆
  * @param {any} data 数据
@@ -341,7 +340,7 @@ export const getUUID = (str = "-") => {
  * @param {string} children 孩子节点字段 默认 'children'
  * @returns array
  */
-export function handleTree(data, id, parentId, children) {
+export const handleTree = (data, id, parentId, children) => {
   let config = {
     id: id || "id",
     parentId: parentId || "parentId",
@@ -383,23 +382,62 @@ export function handleTree(data, id, parentId, children) {
     }
   }
   return tree;
-}
+};
+
+/**
+ * 正则转义
+ * @param {string} string
+ * @returns string
+ */
+export const parseRegExp = (string) => {
+  return string.replace(/[/\-\\^$*+?.()|[\]{}]/g, "\\$&");
+};
 
 /**
  * 匹配字符串
  * @param {string} value 数据
  * @param {string} checkStr 要匹配的值
- * @param {boolean} capitalization 匹配大小写 默认true
- * @param {boolean} all 匹配全局 默认true
+ * @param {object} option 配置项
+ * checkAll 默认true 全局匹配
+ * capitalization 默认true 匹配大小写
  * @returns boolean
  */
-export function hasStr(value, checkStr, capitalization = true, all = true) {
+export const hasText = (value, checkStr, option = {}) => {
+  const _option = {
+    checkAll: true,
+    capitalization: true,
+    ...option,
+  };
   let str = "";
-  if (capitalization) {
-    str += "i";
-  }
-  if (all) {
-    str += "g";
-  }
-  return value.match(new RegExp(checkStr, str));
-}
+  if (_option.capitalization) str += "i";
+  if (_option.checkAll) str += "g";
+  const data = value.match(new RegExp(parseRegExp(checkStr), str));
+  return data ? true : false;
+};
+
+/**
+ * 高亮字段
+ * @param {string} text 文本
+ * @param {string} lightStr 高亮文本
+ * @param {string} color 颜色
+ * @param {object} option 配置项
+ * checkAll 默认true 全局匹配
+ * capitalization 默认true 匹配大小写
+ * class 默认highLightText 类名
+ * @returns string
+ */
+export const highLightText = (text, lightStr, color, option = {}) => {
+  const _option = {
+    checkAll: true,
+    capitalization: true,
+    class: "highLightText",
+    ...option,
+  };
+  const startTag = `<span class="${_option.class}" style="color:${color}">`;
+  const endTag = "</span>";
+  let str = "";
+  if (_option.capitalization) str += "i";
+  if (_option.checkAll) str += "g";
+  const regStr = new RegExp(`${parseRegExp(lightStr)}`, str);
+  return text.replace(regStr, startTag + "$&" + endTag);
+};
