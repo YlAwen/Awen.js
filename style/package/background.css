@@ -13,3 +13,19 @@
 .bg-cover {
   background-size: cover;
 }
+
+.bf-blur {
+  backdrop-filter: blur(10px);
+}
+.bf-blur20 {
+  backdrop-filter: blur(20px);
+}
+.bf-blur30 {
+  backdrop-filter: blur(30px);
+}
+.bf-blur40 {
+  backdrop-filter: blur(40px);
+}
+.bf-blur50 {
+  backdrop-filter: blur(50px);
+}
