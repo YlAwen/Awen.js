@@ -41,3 +41,10 @@ export declare function getPath(url: string): string;
  * @returns params string
  */
 export declare function toParamsStr(data: object): string;
+
+/**
+ * 更改网址参数
+ * @param {object} data
+ * @returns undefined
+ */
+export declare function changeUrlQuery(data: object): void;

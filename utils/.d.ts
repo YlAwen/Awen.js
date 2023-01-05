@@ -202,3 +202,29 @@ export declare function highLightText(
   color: string,
   option?: highLightText_Option
 ): string;
+
+/**
+ * @description 更新标题
+ * @param {String} title 标题
+ */
+export declare function setTitle(string: string): void;
+
+/**
+ * 获取文件信息
+ * @param {string} url 地址
+ * @param {string} str 地址拼接符
+ * @returns 文件对象
+ * {
+ *   fullName,
+ *   name,
+ *   type,
+ * }
+ */
+export declare function getFileInfo(
+  url: string,
+  str?: string
+): {
+  fullName: string;
+  name: string;
+  type: string;
+};

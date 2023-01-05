@@ -15,10 +15,7 @@ export const open = (path, data) => {
     for (let key in data) {
       queryStr = queryStr + "&" + key + "=" + data[key];
     }
-    return window.open(
-      url + "?" + queryStr.replace(/.{1}(.*)/, "$1"),
-      "_blank"
-    );
+    return window.open(url + "?" + queryStr.replace(/.{1}(.*)/, "$1"), "_blank");
   }
   if (type(data) === "Array") {
     var parmaStr = "";
@@ -121,4 +118,18 @@ export const toParams = (data) => {
   } else {
     return "";
   }
+};
+
+export const changeUrlQuery = (obj) => {
+  if (type(obj) !== "Object") {
+    return console.error("数据错误：", obj);
+  }
+  const path = window.location.origin + window.location.pathname + toParams(obj);
+  window.history.replaceState(
+    {
+      path: path,
+    },
+    "",
+    path,
+  );
 };

@@ -38,17 +38,16 @@ export const check = (type, str) => {
         return /^\d*(?:\.\d{0,2})?$/.test(str);
       case "URL": //网址
         return /(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?/.test(
-          str
+          str,
         );
       case "IP": //IP
         return /((?:(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d)\\.){3}(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d))/.test(
-          str
+          str,
         );
       case "date": //日期时间
         return (
-          /^(\d{4})\-(\d{2})\-(\d{2}) (\d{2})(?:\:\d{2}|:(\d{2}):(\d{2}))$/.test(
-            str
-          ) || /^(\d{4})\-(\d{2})\-(\d{2})$/.test(str)
+          /^(\d{4})\-(\d{2})\-(\d{2}) (\d{2})(?:\:\d{2}|:(\d{2}):(\d{2}))$/.test(str) ||
+          /^(\d{4})\-(\d{2})\-(\d{2})$/.test(str)
         );
       case "number": //数字
         return /^[0-9]$/.test(str);
@@ -135,8 +134,7 @@ export const deepClone = (data, map = new WeakMap()) => {
     if (typeof data !== "object" || data === null) return data;
     // 函数 正则 日期 ES6新对象,执行构造题，返回新的对象
     const constructor = data.constructor;
-    if (/^(Function|RegExp|Date|Map|Set)$/i.test(constructor.name))
-      return new constructor(data);
+    if (/^(Function|RegExp|Date|Map|Set)$/i.test(constructor.name)) return new constructor(data);
     // map标记每一个出现过的属性，避免循环引用
     if (map.get(data)) return map.get(data);
     map.set(data, true);
@@ -196,9 +194,7 @@ export const splitStr = (data, splitStr = ",", splitNum = 3) => {
  * @returns copy
  */
 export const copy = (text) => {
-  navigator.clipboard &&
-    navigator.clipboard.writeText &&
-    navigator.clipboard.writeText(text);
+  navigator.clipboard && navigator.clipboard.writeText && navigator.clipboard.writeText(text);
 };
 
 /**
@@ -281,10 +277,7 @@ export const rgbToHex = (r, g, b) => {
     n = parseInt(n, 10);
     if (isNaN(n)) return "00";
     n = Math.max(0, Math.min(n, 255));
-    return (
-      "0123456789ABCDEF".charAt((n - (n % 16)) / 16) +
-      "0123456789ABCDEF".charAt(n % 16)
-    );
+    return "0123456789ABCDEF".charAt((n - (n % 16)) / 16) + "0123456789ABCDEF".charAt(n % 16);
   };
   return "#" + utils._toHex(r) + utils._toHex(g) + utils._toHex(b);
 };
@@ -325,9 +318,7 @@ export const getUUID = (str = "-") => {
     "yxxx" +
     str +
     "xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
-      return (c === "x" ? (Math.random() * 16) | 0 : "r&0x3" | "0x8").toString(
-        16
-      );
+      return (c === "x" ? (Math.random() * 16) | 0 : "r&0x3" | "0x8").toString(16);
     })
   );
 };
@@ -441,3 +432,41 @@ export const highLightText = (text, lightStr, color, option = {}) => {
   const regStr = new RegExp(`${parseRegExp(lightStr)}`, str);
   return text.replace(regStr, startTag + "$&" + endTag);
 };
+
+/**
+ * @description 更新标题
+ * @param {String} title 标题
+ */
+export const setTitle = (title = "") => {
+  window.document.title = title;
+};
+
+/**
+ * 获取文件信息
+ * @param {string} url 地址
+ * @param {string} str 地址拼接符
+ * @returns 文件对象
+ * {
+ *   fullName,
+ *   name,
+ *   type,
+ * }
+ */
+export const getFileInfo = (url, str = "/") => {
+  const urlArr = url.split(str);
+  const fullName = urlArr[urlArr.length - 1];
+  let name = "";
+  let type = "";
+  if (fullName.indexOf(".") === -1) {
+    name = fullName;
+  } else {
+    type = fullName.replace(/.*[.](.*)/, "$1");
+    name = fullName.replace(/(.*)[.].*/, "$1");
+  }
+  return {
+    fullName,
+    name,
+    type,
+  };
+};
+
