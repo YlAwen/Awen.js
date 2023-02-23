@@ -54,7 +54,7 @@ export declare function deepClone(data: any, map?: any): any;
 export declare function splitStr(
   data: string | number,
   splitStr?: string,
-  splitNum?: number
+  splitNum?: number,
 ): string;
 
 /**
@@ -106,11 +106,7 @@ export declare function trimAll(str: string): string;
  * @param {string} newstr 替换成的字段
  * @returns string
  */
-export declare function replaceAll(
-  text: string,
-  repstr: string,
-  newstr: string
-): string;
+export declare function replaceAll(text: string, repstr: string, newstr: string): string;
 
 /**
  * RGB颜色转十六进制颜色
@@ -122,7 +118,7 @@ export declare function replaceAll(
 export declare function rgbToHex(
   r: string | number,
   g: string | number,
-  b: string | number
+  b: string | number,
 ): string;
 
 /**
@@ -158,7 +154,7 @@ export declare function handleTree(
   data: Array<any>,
   id?: string,
   parentId?: string,
-  children?: string
+  children?: string,
 ): Array<any>;
 
 type hasText_Option = {
@@ -174,11 +170,7 @@ type hasText_Option = {
  * capitalization 默认true 匹配大小写
  * @returns boolean
  */
-export declare function hasText(
-  value: string,
-  checkStr: string,
-  option?: hasText_Option
-): boolean;
+export declare function hasText(value: string, checkStr: string, option?: hasText_Option): boolean;
 
 type highLightText_Option = {
   checkAll?: boolean;
@@ -200,7 +192,7 @@ export declare function highLightText(
   text: string,
   lightStr: string,
   color: string,
-  option?: highLightText_Option
+  option?: highLightText_Option,
 ): string;
 
 /**
@@ -222,9 +214,29 @@ export declare function setTitle(string: string): void;
  */
 export declare function getFileInfo(
   url: string,
-  str?: string
+  str?: string,
 ): {
   fullName: string;
   name: string;
   type: string;
 };
+
+type log_Option = {
+  type?: string;
+  color?: string;
+  text: string;
+  title?: string;
+  theme?: string;
+};
+/**
+ * 打印
+ * @param {object} option 配置项
+ * {
+ * 	type
+ * 	color
+ * 	text
+ * 	title
+ * 	theme
+ * }
+ */
+export declare function log(option: log_Option): void;

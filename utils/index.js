@@ -470,3 +470,61 @@ export const getFileInfo = (url, str = "/") => {
   };
 };
 
+/**
+ * 打印
+ * @param {object} option 配置项
+ * {
+ * 	type
+ * 	color
+ * 	text
+ * 	title
+ * 	theme
+ * }
+ */
+export const log = (option = {}) => {
+  let color = option.color || "";
+  const theme = {
+    primary: "rgb(52,141,238)",
+    success: "rgb(37,190,109)",
+    info: "rgb(144,147,153)",
+    warning: "rgb(253,152,33)",
+    danger: "rgb(238,61,33)",
+    default: "rgb(54,73,93)",
+  };
+  const defaultOption = {
+    type: "text",
+    color: "#000",
+    text: "",
+    title: "",
+    theme: "",
+  };
+  if (option.theme) {
+    color = theme[option.theme];
+  }
+  const logOption = {
+    ...defaultOption,
+    ...option,
+    color,
+  };
+  switch (logOption.type) {
+    case "text":
+      console.log(`%c${logOption.text}`, `color: ${logOption.color};`);
+      break;
+    case "title":
+      console.log(
+        `%c ${logOption.title} %c ${logOption.text} %c`,
+        `background:${logOption.color};border:1px solid ${logOption.color}; padding: 1px; border-radius: 4px 0 0 4px; color: #fff;`,
+        `border:1px solid ${logOption.color}; padding: 1px; border-radius: 0 4px 4px 0; color: ${logOption.color};`,
+        "background:transparent",
+      );
+      break;
+    case "full":
+      console.log(
+        `%c ${logOption.text} `,
+        `background:${logOption.color}; padding: 2px; border-radius: 4px;color: #fff;`,
+      );
+      break;
+    default:
+      break;
+  }
+};
