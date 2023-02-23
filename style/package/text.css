@@ -18,7 +18,7 @@
   text-decoration: overline;
 }
 .td-lineThrough {
-	text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 .t-indent1 {
@@ -38,68 +38,58 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  min-height: 1em;
 }
 .t-row2 {
   display: -webkit-box !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
-  min-height: 2em;
 }
 .t-row3 {
   display: -webkit-box !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
-  min-height: 3em;
 }
 .t-row4 {
   display: -webkit-box !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
   overflow: hidden;
-  min-height: 4em;
 }
 .t-row5 {
   display: -webkit-box !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 5;
   overflow: hidden;
-  min-height: 5em;
 }
 .t-row6 {
   display: -webkit-box !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 6;
   overflow: hidden;
-  min-height: 6em;
 }
 .t-row7 {
   display: -webkit-box !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 7;
   overflow: hidden;
-  min-height: 7em;
 }
 .t-row8 {
   display: -webkit-box !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 8;
   overflow: hidden;
-  min-height: 8em;
 }
 .t-row9 {
   display: -webkit-box !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 9;
   overflow: hidden;
-  min-height: 9em;
 }
 .t-row10 {
   display: -webkit-box !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 10;
   overflow: hidden;
-  min-height: 10em;
 }
