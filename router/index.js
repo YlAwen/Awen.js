@@ -1,58 +1,60 @@
-import { type } from "../utils";
+import { getType } from "../utils";
 /**
  * 打开新页面
  * @param {string} path
  * @param {array||object} data
- * @returns router
  */
 export const open = (path, data) => {
   let url = path;
   if (path[path.length - 1] === "/") {
     url = url.slice(0, url.length - 1);
   }
-  if (type(data) === "Object") {
+  if (getType(data) === "Object") {
     let queryStr = "";
     for (let key in data) {
       queryStr = queryStr + "&" + key + "=" + data[key];
     }
-    return window.open(url + "?" + queryStr.replace(/.{1}(.*)/, "$1"), "_blank");
+    window.open(url + "?" + queryStr.replace(/.{1}(.*)/, "$1"), "_blank");
+    return;
   }
-  if (type(data) === "Array") {
+  if (getType(data) === "Array") {
     var parmaStr = "";
     data.forEach((element) => {
       parmaStr = parmaStr + "/" + element;
     });
-    return window.open(url + parmaStr, "_blank");
+    window.open(url + parmaStr, "_blank");
+    return;
   }
-  return window.open(url, "_blank");
+  window.open(url, "_blank");
 };
 
 /**
- * 打开页面
+ * 跳转页面
  * @param {string} path
  * @param {array||object} data
- * @returns router
  */
 export const go = (path, data) => {
   let url = path;
   if (path[path.length - 1] === "/") {
     url = url.slice(0, url.length - 1);
   }
-  if (type(data) === "Object") {
+  if (getType(data) === "Object") {
     var queryStr = "";
     for (let key in data) {
       queryStr = queryStr + "&" + key + "=" + data[key];
     }
-    return window.open(url + "?" + queryStr.replace(/.{1}(.*)/, "$1"), "_self");
+    window.open(url + "?" + queryStr.replace(/.{1}(.*)/, "$1"), "_self");
+    return;
   }
-  if (type(data) === "Array") {
+  if (getType(data) === "Array") {
     var parmaStr = "";
     data.forEach((element) => {
       parmaStr = parmaStr + "/" + element;
     });
-    return window.open(url + parmaStr, "_self");
+    window.open(url + parmaStr, "_self");
+    return;
   }
-  return window.open(url, "_self");
+  window.open(url, "_self");
 };
 
 /**
@@ -110,7 +112,7 @@ export const getPath = (url) => {
  */
 export const toParams = (data) => {
   let str = "";
-  if (type(data) === "Object") {
+  if (getType(data) === "Object") {
     for (let key in data) {
       str = str + "&" + key + "=" + data[key];
     }
@@ -120,8 +122,12 @@ export const toParams = (data) => {
   }
 };
 
+/**
+ * 更改网址参数
+ * @param {object} data
+ */
 export const changeUrlQuery = (obj) => {
-  if (type(obj) !== "Object") {
+  if (getType(obj) !== "Object") {
     return console.error("数据错误：", obj);
   }
   const path = window.location.origin + window.location.pathname + toParams(obj);

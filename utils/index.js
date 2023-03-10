@@ -1,9 +1,9 @@
 /**
- * 判断数据类型
- * @param {any} data
- * @returns type
+ * 获取数据类型
+ * @param { any } data
+ * @returns string (首字母大写)
  */
-export const type = (data) => {
+export const getType = (data) => {
   return Object.prototype.toString.call(data).replace(/\[object (.*)\]/, "$1");
 };
 
@@ -11,7 +11,27 @@ export const type = (data) => {
  * 正则校验数据
  * @param {string} type
  * @param {number||string} str
- * @returns boolean||undefined
+ * @returns boolean
+ * type:
+ * mobile 手机号
+ * tel 座机
+ * card 身份证
+ * mobileCode 6位数字验证码
+ * pwd 密码以字母开头，长度在6~18之间，只能包含字母、数字和下划线
+ * payPwd 6位纯数字
+ * postal 邮政编码
+ * QQ QQ号
+ * email 邮箱
+ * money 金额(小数点2位)
+ * URL 网址
+ * IP IP
+ * date 日期时间
+ * number 数字
+ * english 英文
+ * chinese 中文
+ * lower 小写
+ * upper 大写
+ * HTML HTML标记
  */
 export const check = (type, str) => {
   try {
@@ -72,30 +92,26 @@ export const check = (type, str) => {
 /**
  * object转formdata
  * @param {object} data 对象
- * @returns formdata | false
+ * @returns formdata
  */
 export const toFromData = (data) => {
+  let formdata = new FormData();
   try {
-    if (type(data) === "Object") {
-      let formdata = new FormData();
-      for (let key in data) {
-        formdata.append(key, data[key]);
-      }
-      return formdata;
-    } else {
-      return false;
+    for (let key in data) {
+      formdata.append(key, data[key]);
     }
   } catch (error) {
     console.log(error);
   }
+  return formdata;
 };
 
 var _debounceTimeout = null;
 /**
  * 函数防抖
  * @param {function} func 目标函数
- * @param {number} wait 延迟执行毫秒数
- * @returns function
+ * @param {number?} wait  延迟执行毫秒数 默认500
+ * @returns
  */
 export const debounce = (func, wait = 500) => {
   clearTimeout(_debounceTimeout);
@@ -108,8 +124,8 @@ var _throttleRunning = false;
 /**
  * 函数节流
  * @param {function} func 函数
- * @param {number} wait 延迟执行毫秒数
- * @returns function
+ * @param {number?} wait 延迟执行毫秒数默认500
+ * @returns
  */
 export const throttle = (func, delay = 500) => {
   if (_throttleRunning) {
@@ -160,10 +176,10 @@ export const deepClone = (data, map = new WeakMap()) => {
 export const splitStr = (data, splitStr = ",", splitNum = 3) => {
   try {
     let _data = data.toString();
-    if (type(splitNum) === "Number") {
+    if (getType(splitNum) === "Number") {
       return "";
     }
-    if (_data.indexOf(".") !== -1 && type(data) === "Number") {
+    if (_data.indexOf(".") !== -1 && getType(data) === "Number") {
       let arr = _data.split(".");
       let data1 = arr[0];
       let data2 = arr[1];
@@ -213,7 +229,7 @@ export const scrollTo = (element, str = "start") => {
  */
 export const titleCase = (str) => {
   if (value == null || value.length === 0) return value;
-  if (type(str) !== "String") {
+  if (getType(str) !== "String") {
     return str;
   } else {
     return value.replace(/^[a-z]/, (matchStr) => {
@@ -414,14 +430,14 @@ export const hasText = (value, checkStr, option = {}) => {
  * @param {object} option 配置项
  * checkAll 默认true 全局匹配
  * capitalization 默认true 匹配大小写
- * class 默认highLightText 类名
+ * class 默认AwenHighLightText 类名
  * @returns string
  */
 export const highLightText = (text, lightStr, color, option = {}) => {
   const _option = {
     checkAll: true,
     capitalization: true,
-    class: "highLightText",
+    class: "AwenHighLightText",
     ...option,
   };
   const startTag = `<span class="${_option.class}" style="color:${color}">`;

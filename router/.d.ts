@@ -2,17 +2,15 @@
  * 打开新页面
  * @param {string} path
  * @param {array||object} data
- * @returns router
  */
-export declare function open(path: string, data?: Object | Array<any>): Window;
+export declare function open(path: string, data?: Object | Array<string | number>): void;
 
 /**
- * 打开页面
+ * 跳转页面
  * @param {string} path
  * @param {array||object} data
- * @returns router
  */
-export declare function go(path: string, data?: Object | Array<any>): Window;
+export declare function go(path: string, data?: Object | Array<string | number>): void;
 
 /**
  * 获取url参数对象
@@ -38,13 +36,12 @@ export declare function getPath(url: string): string;
 /**
  * 对象转路径params
  * @param {object} data
- * @returns params string
+ * @returns string
  */
 export declare function toParamsStr(data: object): string;
 
 /**
  * 更改网址参数
  * @param {object} data
- * @returns undefined
  */
 export declare function changeUrlQuery(data: object): void;
